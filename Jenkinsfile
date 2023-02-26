@@ -6,7 +6,7 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/adyant0208/student-directory.git'
             }
         }
-         stage("Unit Testing") {
+         stage("Gradle Build") {
             steps {
                 sh './gradlew clean build'
             }
