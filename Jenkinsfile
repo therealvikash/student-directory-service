@@ -7,4 +7,11 @@ pipeline {
             }
         }
     }
+    stages {
+        stage("Unit Testing") {
+            steps {
+                sh './gradlew clean build'
+            }
+        }
+    }
 }
