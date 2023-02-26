@@ -10,7 +10,7 @@ pipeline {
     stages {
         stage("Unit Testing") {
             steps {
-                sh './gradlew clean build'
+                sh 'mvn test'
             }
         }
     }
