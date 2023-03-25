@@ -1,29 +1,55 @@
 plugins {
 	id 'java'
-	id 'org.springframework.boot' version '3.0.3'
+	id 'jacoco'
+	id 'org.springframework.boot' version '3.0.2'
 	id 'io.spring.dependency-management' version '1.1.0'
+	id 'org.sonarqube' version '3.3'
 }
+apply from : 'jenkins-config/gradle/sonarqube.gradle'
+apply from : 'jenkins-config/gradle/nexus.gradle'
 
-group = 'com.bma'
-version = '0.0.1-SNAPSHOT'
+
+project.group = "com.bma"
+project.version = '1.0.0'
+project.description = "Student Directory"
+
 sourceCompatibility = '17'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
 
 repositories {
 	mavenCentral()
+    maven {
+        url "http://ec2-13-113-223-0.ap-northeast-1.compute.amazonaws.com:8081/repository/student-directory-release/"
+        allowInsecureProtocol = true
+}
+}
+
+bootJar {
+	archiveClassifier = "boot"
 }
 
 dependencies {
-  implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-  implementation 'org.springframework.boot:spring-boot-starter-data-rest'
-  implementation 'org.springframework.boot:spring-boot-starter-validation'
-  compileOnly 'org.projectlombok:lombok'
-  developmentOnly 'org.springframework.boot:spring-boot-devtools'
-  runtimeOnly 'com.h2database:h2'
-  annotationProcessor 'org.projectlombok:lombok'
-  testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-data-rest'
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	compileOnly 'org.projectlombok:lombok'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	runtimeOnly 'com.h2database:h2'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation "org.junit.jupiter:junit-jupiter-api:5.2.0"
+	testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:5.2.0"
+	testImplementation "org.junit.jupiter:junit-jupiter-params:5.2.0"
 }
 
 
 tasks.named('test') {
 	useJUnitPlatform()
 }
+

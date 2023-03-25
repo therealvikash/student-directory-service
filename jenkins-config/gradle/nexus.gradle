@@ -1,0 +1,20 @@
+apply plugin: 'maven-publish'
+
+
+publishing {
+    repositories {
+        maven {
+            url 'http://ec2-52-68-185-231.ap-northeast-1.compute.amazonaws.com:8081/repository/student-directory-release/'
+            credentials {
+                username = 'admin'
+                password = 'Welcome4$'
+            }
+        }
+    }
+
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+        }
+    }
+}
