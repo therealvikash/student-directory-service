@@ -12,7 +12,7 @@ public class BMASchoolController {
 	@GetMapping(value = "/")
 	public String getValue() {
 
-		String result = "Learnng how to do jenkins staging" + val;
+		String result = "Learnng how to do jenkins staging " + val;
 		return result;
 	}
 }
