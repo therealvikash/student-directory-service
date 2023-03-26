@@ -67,7 +67,7 @@ pipeline {
                     nexusUrl: 'ec2-43-207-81-106.ap-northeast-1.compute.amazonaws.com:8081', 
                     nexusVersion: 'nexus3', 
                     protocol: 'http', 
-                    repository: 'student-directory-release', 
+                    repository: 'student-directory-SNAPSHOT', 
                     version: '1.0.0-SNAPSHOT'
                 }
             }
