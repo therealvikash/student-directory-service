@@ -11,6 +11,7 @@ pipeline {
         }
          stage("Gradle Build") {
             steps {
+            	sh 'chmod +x gradlew'
                 sh './gradlew clean build'
             }
         }
@@ -38,7 +39,6 @@ pipeline {
           steps {
             script {
                 withSonarQubeEnv(credentialsId: 'sonar-auth-token') {
-                sh 'chmod +x gradlew'
                 sh './gradlew sonarqube'
                 }
             }
