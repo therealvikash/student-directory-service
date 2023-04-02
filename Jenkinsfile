@@ -81,5 +81,16 @@ pipeline {
                 }
             }
         }
+        stage("Pushing Docker Image") {
+            steps {
+                script {
+                    withCredentials([string(credentialsId: 'docker-cred', variable: 'docker-cred')]) {
+                        sh 'docker login -u therealvikash -p docker-cred'
+                        sh 'docker image push therealvikash/$JOB_NAME:v1.$BUILD_ID'
+                        sh 'docker image push therealvikash/$JOB_NAME:latest'
+                    }    
+                }
+            }
+        }
     }
 }
