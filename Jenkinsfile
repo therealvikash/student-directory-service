@@ -64,7 +64,7 @@ pipeline {
                     type: 'jar']], 
                     credentialsId: 'nexus-auth', 
                     groupId: 'student-directory', 
-                    nexusUrl: 'ec2-43-207-81-106.ap-northeast-1.compute.amazonaws.com:8081', 
+                    nexusUrl: 'ec2-43-206-231-177.ap-northeast-1.compute.amazonaws.com:8081', 
                     nexusVersion: 'nexus3', 
                     protocol: 'http', 
                     repository: 'student-directory-SNAPSHOT', 
