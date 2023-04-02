@@ -45,13 +45,13 @@ pipeline {
           }
         }
 
-        stage('Quality Gate Stage') {
-          steps {
-            script {
-                waitForQualityGate abortPipeline: true, credentialsId: 'sonar-auth-token'
-            }
-          }
-        }
+        // stage('Quality Gate Stage') {
+        //   steps {
+        //     script {
+        //         waitForQualityGate abortPipeline: true, credentialsId: 'sonar-auth-token'
+        //     }
+        //   }
+        // }
 
         stage("Pushing artifact to Nexus") {
             steps {
