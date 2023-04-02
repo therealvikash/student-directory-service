@@ -76,8 +76,8 @@ pipeline {
             steps {
                 script {
                     sh 'docker build -t $JOB_NAME:v1.$BUILD_ID .'
-                    sh 'docker -t $JOB_NAME:v1.$BUILD_ID therealvikash/$JOB_NAME:v1.$BUILD_ID .'
-                    sh 'docker -t $JOB_NAME:v1.$BUILD_ID therealvikash/$JOB_NAME:latest .'
+                    sh 'docker tag $JOB_NAME:v1.$BUILD_ID therealvikash/$JOB_NAME:v1.$BUILD_ID .'
+                    sh 'docker tag $JOB_NAME:v1.$BUILD_ID therealvikash/$JOB_NAME:latest .'
                 }
             }
         }
