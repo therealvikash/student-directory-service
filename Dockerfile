@@ -1,7 +1,7 @@
 FROM gradle as build
 WORKDIR /app
 COPY . /app/
-RUN gradle install
+RUN ./gradlew clean build
 
 FROM openjdk
 WORKDIR /app
