@@ -46,6 +46,10 @@ dependencies {
 	testImplementation "org.junit.jupiter:junit-jupiter-api:5.2.0"
 	testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:5.2.0"
 	testImplementation "org.junit.jupiter:junit-jupiter-params:5.2.0"
+	implementation "io.swagger.codegen.v3:swagger-codegen-cli:3.0.36"
+	implementation 'org.mapstruct:mapstruct:1.4.2.Final'
+	implementation 'org.springframework:spring-webflux:5.3.20'
+	
 }
 
 

@@ -1,0 +1,33 @@
+plugins {
+    id 'java'
+}
+
+configurations {
+	swagger
+}
+
+dependencies {
+    implementation "io.swagger.codegen.v3:swagger-codegen-cli:3.0.36"
+}
+/*
+task generateSwaggerCode(type: JavaExec) {
+	classPath = configurations.swagger
+	
+	main = "io.swagger.codegen.v3.cli.SwaggerCodegen"
+	def inputSpec = "$rootDir/src/main/resources/json/studentdirectory.json"
+	
+	args = ['generate', '-l', 'spring',
+			'--model-package', "com.bma.school.service.studentdirectory",
+			'--additional-properties', 'serializableModel = true',
+			"-o", "build/swagger", "-i", "${inputSpec}"]
+			
+	jvmArgs = ["-Dmodels"]
+    /*commandLine 'java', '-jar', 'swagger-codegen-cli.jar', 'generate', 
+                '-i', 'swagger.yaml',
+                '-l', 'java',
+                '-o', 'src/main/java',
+                '-c', 'swagger-config.json'*/
+}
+
+compileJava.dependsOn generateSwaggerCode
+*/
