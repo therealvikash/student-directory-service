@@ -1,8 +1,5 @@
 package com.bma.school.exception;
 
-import lombok.Data;
-
-@Data
 public class StudentDetailsException extends Exception{
 	
 	/**
@@ -23,4 +20,30 @@ public class StudentDetailsException extends Exception{
 		this.exceptionType = exceptionType;
 		this.message = message;
 	}
+
+	public String getExceptionCode() {
+		return exceptionCode;
+	}
+
+	public void setExceptionCode(String exceptionCode) {
+		this.exceptionCode = exceptionCode;
+	}
+
+	public String getExceptionType() {
+		return exceptionType;
+	}
+
+	public void setExceptionType(String exceptionType) {
+		this.exceptionType = exceptionType;
+	}
+
+	public String getMessage() {
+		return message;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
+	}
+	
+	
 }

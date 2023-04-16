@@ -27,8 +27,6 @@ public class BMASchoolController {
 	@Autowired
 	private IStudentDetailsService iStudentDetailsService;
 
-	private transient Integer val = 0;
-
 	@Operation(method = "POST", summary = "Gets the billing details of students."
 			+ "Sample URL -http://{....}/bma/studentdirectory/abc", description = "Gets the bill genenrated for student")
 	@ApiResponses(value = { @ApiResponse(responseCode = "200", description = "Succesfully retrieved the bills"),
