@@ -3,6 +3,7 @@ package com.bma.school.eo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
@@ -24,10 +25,10 @@ public class StudentDetailsEO {
 
 	private WebClient webClient;
 
-//	@Autowired
-//	private StudentDetailsEO(@Qualifier("jwtDecoratedStudentDetails") WebClient webClient) {
-//		this.webClient = webClient;
-//	}
+	@Autowired
+	private StudentDetailsEO(@Qualifier("jwtDecoratedStudentDetails") WebClient webClient) {
+		this.webClient = webClient;
+	}
 
 	public StudentDetailsOutputDTO getStudentDetails(StudentDetailsInputDTO studentDetailsInputDTO)
 			throws StudentDetailsException {
@@ -36,20 +37,21 @@ public class StudentDetailsEO {
 		StudentDetailsRequestVO studentDetailsRequestVO = studentDetailsMapperUtil
 				.populateReqVOFromInputVo(studentDetailsInputDTO);
 		try {
-			studentDetailsResponseVO = webClient.post()
+			studentDetailsResponseVO = 
+					webClient.post()
 					.uri("http://localhost:8083/student/directory/service/read/studentdetails")
 					.accept(MediaType.APPLICATION_JSON)
-//					.header("")
-//					.header("", "")
 					.bodyValue(studentDetailsRequestVO)
 					.retrieve()
 					.bodyToMono(StudentDetailsResponseVO.class)
 					.block();
+
 			if (null == studentDetailsResponseVO) {
 				throw new StudentDetailsException();
 			}
 			studentDetailsOutputDTO = studentDetailsMapperUtil.populateOutputVoFromResVO(studentDetailsResponseVO);
 		} catch (Exception e) {
+			System.out.println(studentDetailsResponseVO);
 			String exceptionMesssage = "Failed to make web client call";
 			logger.error(exceptionMesssage, e);
 			throw new StudentDetailsException("", "", "Invalid Data");

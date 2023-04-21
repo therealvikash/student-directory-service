@@ -7,7 +7,7 @@ public class StudentDtlsRequestVO {
 
 	private String studentId;
 	
-	private String studenName;
+	private String studentName;
 
 	private String studentPermanentAddress;
 

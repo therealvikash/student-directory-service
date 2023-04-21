@@ -5,8 +5,16 @@ import lombok.Data;
 @Data
 public class StudentDtlsInputVO {
 
-	private String studenName;
+private String studentId;
 	
-	private String studentId;
+	private String studentName;
+
+	private String studentPermanentAddress;
+
+	private String studentCurrentAddress;
+
+	private String studentContact;
+
+	private String studentEmailId;
 
 }
