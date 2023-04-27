@@ -9,7 +9,7 @@ apply from : 'jenkins-config/gradle/sonarqube.gradle'
 apply from : 'jenkins-config/gradle/nexus.gradle'
 
 project.group = "com.bma"
-project.version = '1.0.0-SNAPSHOT'
+project.version = '1.0.0'
 project.description = "Student Directory"
 
 sourceCompatibility = '17'

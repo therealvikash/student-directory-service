@@ -68,7 +68,7 @@ pipeline {
                     nexusVersion: 'nexus3', 
                     protocol: 'http', 
                     repository: 'student-directory-release', 
-                    version: '1.0.0-SNAPSHOT'
+                    version: '1.0.0'
                 }
             }
         }
