@@ -60,7 +60,7 @@ pipeline {
                     nexusArtifactUploader artifacts: 
                     [[artifactId: 'student-directory', 
                     classifier: '', 
-                    file: '/var/lib/jenkins/workspace/student-directory/build/libs/student-directory-1.0.0-SNAPSHOT-boot.jar', 
+                    file: '/var/lib/jenkins/workspace/student-directory/build/libs/student-directory-1.0.0-boot.jar', 
                     type: 'jar']], 
                     credentialsId: 'nexus-auth', 
                     groupId: 'student-directory', 
