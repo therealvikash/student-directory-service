@@ -16,7 +16,7 @@ public class StudentDirectorySwaggerConfig {
 	OpenAPI apiInfo() {
 		return new OpenAPI().info(new Info().title("StudentDirectory_V1").description(readSwaggerDocument().toString())
 				.version("v1").license(new License().name("Student Directory Document")
-						/*.url("https://github.com/adyant0208/student-directory")*/));
+						.url("https://github.com/adyant0208/student-directory")));
 	}
 
 	private StringBuilder readSwaggerDocument() {

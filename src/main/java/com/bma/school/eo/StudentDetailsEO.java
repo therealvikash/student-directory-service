@@ -18,7 +18,7 @@ import com.bma.school.response.vo.StudentDetailsResponseVO;
 @Component
 public class StudentDetailsEO {
 
-	private final static Logger logger = LoggerFactory.getLogger(StudentDetailsEO.class);
+	private static final Logger logger = LoggerFactory.getLogger(StudentDetailsEO.class);
 
 	@Autowired
 	private StudentDetailsMapperUtil studentDetailsMapperUtil;
@@ -51,7 +51,6 @@ public class StudentDetailsEO {
 			}
 			studentDetailsOutputDTO = studentDetailsMapperUtil.populateOutputVoFromResVO(studentDetailsResponseVO);
 		} catch (Exception e) {
-			System.out.println(studentDetailsResponseVO);
 			String exceptionMesssage = "Failed to make web client call";
 			logger.error(exceptionMesssage, e);
 			throw new StudentDetailsException("", "", "Invalid Data");

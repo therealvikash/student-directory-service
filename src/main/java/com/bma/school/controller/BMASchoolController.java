@@ -29,7 +29,7 @@ public class BMASchoolController {
 	private IStudentDetailsService iStudentDetailsService;
 
 	@Operation(method = "POST", summary = "Gets the billing details of students."
-			+ "Sample URL -http://{....}/bma/studentdirectory/abc", description = "Gets the bill genenrated for student")
+			+ "Sample URL -http://{....}/bma/studentdirectory/abc", description = "Gets the bill generated for student")
 	@ApiResponses(value = { @ApiResponse(responseCode = "200", description = "Succesfully retrieved the bills"),
 			@ApiResponse(responseCode = "500", description = "Internal Server Error", content = @Content),
 			@ApiResponse(responseCode = "401", description = "Unauthorized", content = @Content),

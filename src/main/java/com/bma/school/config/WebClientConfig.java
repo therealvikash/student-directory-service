@@ -74,6 +74,7 @@ public class WebClientConfig {
 				.build();
 	}
 
+	@SuppressWarnings("unused")
 	private ExchangeFilterFunction jwtFilter() {
 		return (request, next) -> {
 			try {
@@ -85,6 +86,7 @@ public class WebClientConfig {
 		};
 	}
 
+	@SuppressWarnings("unused")
 	private ExchangeFilterFunction logRequest() {
 		return ExchangeFilterFunction.ofRequestProcessor(clientRequest -> {
 			StringBuilder sb = new StringBuilder();

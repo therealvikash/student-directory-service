@@ -9,12 +9,12 @@ configurations {
 dependencies {
     implementation "io.swagger.codegen.v3:swagger-codegen-cli:3.0.36"
 }
-/*
+
 task generateSwaggerCode(type: JavaExec) {
 	classPath = configurations.swagger
 	
 	main = "io.swagger.codegen.v3.cli.SwaggerCodegen"
-	def inputSpec = "$rootDir/src/main/resources/json/studentdirectory.json"
+	def inputSpec = "$rootDir/src/main/resources/json/StudentDetailsSwagger.json"
 	
 	args = ['generate', '-l', 'spring',
 			'--model-package', "com.bma.school.service.studentdirectory",
