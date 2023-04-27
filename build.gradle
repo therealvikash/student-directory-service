@@ -23,7 +23,7 @@ configurations {
 repositories {
 	mavenCentral()
     maven {
-        url "http://ec2-43-206-231-177.ap-northeast-1.compute.amazonaws.com:8081/repository/student-directory-SNAPSHOT/"
+        url "http://ec2-18-182-66-141.ap-northeast-1.compute.amazonaws.com:8081/repository/student-directory-release/"
         allowInsecureProtocol = true
 	}
 }
@@ -57,7 +57,7 @@ springBoot {
 
 sourceSets {
     main {
-        java { srcDirs "src/main/java" "build/generated/sources/annotationProcessor/java/main", "build/swagger/src/main/java" }
+        java { srcDirs "src/main/java", "build/generated/sources/annotationProcessor/java/main", "build/swagger/src/main/java" }
     }
 }
 

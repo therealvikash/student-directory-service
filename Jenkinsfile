@@ -64,10 +64,10 @@ pipeline {
                     type: 'jar']], 
                     credentialsId: 'nexus-auth', 
                     groupId: 'student-directory', 
-                    nexusUrl: 'ec2-43-206-231-177.ap-northeast-1.compute.amazonaws.com:8081', 
+                    nexusUrl: 'ec2-18-182-66-141.ap-northeast-1.compute.amazonaws.com:8081', 
                     nexusVersion: 'nexus3', 
                     protocol: 'http', 
-                    repository: 'student-directory-SNAPSHOT', 
+                    repository: 'student-directory-release', 
                     version: '1.0.0-SNAPSHOT'
                 }
             }
