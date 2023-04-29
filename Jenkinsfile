@@ -11,7 +11,7 @@ pipeline {
         }
          stage("Gradle Build") {
             steps {
-            	sh 'chmod +x gradlew'
+            	//sh 'chmod +x gradlew'
                 sh './gradlew clean build'
             }
         }
@@ -30,20 +30,24 @@ pipeline {
                 sh './gradlew buildEnvironment'
             }
         }
-        stage('CODE ANALYSIS with SONARQUBE') {
+        /*
+        * The SonarQube and Nexus staging is
+        * commented because the AWS instance are terminated.
+        */
+        // stage('CODE ANALYSIS with SONARQUBE') {
           
-		  environment {
-             scannerHome = tool 'SonarScannerServer'
-          }
+		//   environment {
+        //      scannerHome = tool 'SonarScannerServer'
+        //   }
 
-          steps {
-            script {
-                withSonarQubeEnv(credentialsId: 'sonar-auth-token') {
-                sh './gradlew sonarqube'
-                }
-            }
-          }
-        }
+        //   steps {
+        //     script {
+        //         withSonarQubeEnv(credentialsId: 'sonar-auth-token') {
+        //         sh './gradlew sonarqube'
+        //         }
+        //     }
+        //   }
+        // }
 
         // stage('Quality Gate Stage') {
         //   steps {
@@ -53,25 +57,26 @@ pipeline {
         //   }
         // }
 
-        stage("Pushing artifact to Nexus") {
-            steps {
-            	sh 'ls -l /var/lib/jenkins/workspace/student-directory/build/libs'
-                script {
-                    nexusArtifactUploader artifacts: 
-                    [[artifactId: 'student-directory', 
-                    classifier: '', 
-                    file: '/var/lib/jenkins/workspace/student-directory/build/libs/student-directory-1.0.0-boot.jar', 
-                    type: 'jar']], 
-                    credentialsId: 'nexus-auth', 
-                    groupId: 'student-directory', 
-                    nexusUrl: 'ec2-18-182-66-141.ap-northeast-1.compute.amazonaws.com:8081', 
-                    nexusVersion: 'nexus3', 
-                    protocol: 'http', 
-                    repository: 'student-directory-release', 
-                    version: '1.0.0'
-                }
-            }
-        }
+        // stage("Pushing artifact to Nexus") {
+        //     steps {
+        //     	sh 'ls -l /var/lib/jenkins/workspace/student-directory/build/libs'
+        //         script {
+        //             nexusArtifactUploader artifacts: 
+        //             [[artifactId: 'student-directory', 
+        //             classifier: '', 
+        //             file: '/var/lib/jenkins/workspace/student-directory/build/libs/student-directory-1.0.0-boot.jar', 
+        //             type: 'jar']], 
+        //             credentialsId: 'nexus-auth', 
+        //             groupId: 'student-directory', 
+        //             nexusUrl: 'ec2-18-182-66-141.ap-northeast-1.compute.amazonaws.com:8081', 
+        //             nexusVersion: 'nexus3', 
+        //             protocol: 'http', 
+        //             repository: 'student-directory-release', 
+        //             version: '1.0.0'
+        //         }
+        //     }
+        // }
+        
         stage("Docker Image") {
             steps {
                 script {
