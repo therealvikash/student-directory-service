@@ -1,0 +1,516 @@
+{
+	"openapi": "3.0.1",
+	"info": {
+		"title": "OpenAPI definition",
+		"version": "v0"
+	},
+	"servers": [
+		{
+			"url": "http://localhost:8083",
+			"description": "Generated server url"
+		}
+	],
+	"paths": {
+		"/profile": {
+			"get": {
+				"tags": [
+					"profile-controller"
+				],
+				"operationId": "listAllFormsOfMetadata_1",
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/hal+json": {
+								"schema": {
+									"$ref": "#/components/schemas/RepresentationModelObject"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/profile/studentDtlsResponseVOes": {
+			"get": {
+				"tags": [
+					"profile-controller"
+				],
+				"operationId": "descriptor_1_1_1",
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"type": "string"
+								}
+							},
+							"application/alps+json": {
+								"schema": {
+									"type": "string"
+								}
+							},
+							"application/schema+json": {
+								"schema": {
+									"$ref": "#/components/schemas/JsonSchema"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/studentDtlsResponseVOes": {
+			"get": {
+				"tags": [
+					"student-dtls-response-vo-entity-controller"
+				],
+				"description": "get-studentdtlsresponsevo",
+				"operationId": "getCollectionResource-studentdtlsresponsevo-get_1",
+				"parameters": [
+					{
+						"name": "page",
+						"in": "query",
+						"description": "Zero-based page index (0..N)",
+						"required": false,
+						"schema": {
+							"minimum": 0,
+							"type": "integer",
+							"default": 0
+						}
+					},
+					{
+						"name": "size",
+						"in": "query",
+						"description": "The size of the page to be returned",
+						"required": false,
+						"schema": {
+							"minimum": 1,
+							"type": "integer",
+							"default": 20
+						}
+					},
+					{
+						"name": "sort",
+						"in": "query",
+						"description": "Sorting criteria in the format: property,(asc|desc). Default sort order is ascending. Multiple sort criteria are supported.",
+						"required": false,
+						"schema": {
+							"type": "array",
+							"items": {
+								"type": "string"
+							}
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/hal+json": {
+								"schema": {
+									"$ref": "#/components/schemas/PagedModelEntityModelStudentDtlsResponseVO"
+								}
+							},
+							"application/x-spring-data-compact+json": {
+								"schema": {
+									"$ref": "#/components/schemas/PagedModelEntityModelStudentDtlsResponseVO"
+								}
+							},
+							"text/uri-list": {
+								"schema": {
+									"type": "string"
+								}
+							}
+						}
+					}
+				}
+			},
+			"post": {
+				"tags": [
+					"student-dtls-response-vo-entity-controller"
+				],
+				"description": "create-studentdtlsresponsevo",
+				"operationId": "postCollectionResource-studentdtlsresponsevo-post",
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/StudentDtlsResponseVORequestBody"
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"201": {
+						"description": "Created",
+						"content": {
+							"application/hal+json": {
+								"schema": {
+									"$ref": "#/components/schemas/EntityModelStudentDtlsResponseVO"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/studentDtlsResponseVOes/{id}": {
+			"get": {
+				"tags": [
+					"student-dtls-response-vo-entity-controller"
+				],
+				"description": "get-studentdtlsresponsevo",
+				"operationId": "getItemResource-studentdtlsresponsevo-get",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/hal+json": {
+								"schema": {
+									"$ref": "#/components/schemas/EntityModelStudentDtlsResponseVO"
+								}
+							}
+						}
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			},
+			"put": {
+				"tags": [
+					"student-dtls-response-vo-entity-controller"
+				],
+				"description": "update-studentdtlsresponsevo",
+				"operationId": "putItemResource-studentdtlsresponsevo-put",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/StudentDtlsResponseVORequestBody"
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/hal+json": {
+								"schema": {
+									"$ref": "#/components/schemas/EntityModelStudentDtlsResponseVO"
+								}
+							}
+						}
+					},
+					"201": {
+						"description": "Created",
+						"content": {
+							"application/hal+json": {
+								"schema": {
+									"$ref": "#/components/schemas/EntityModelStudentDtlsResponseVO"
+								}
+							}
+						}
+					},
+					"204": {
+						"description": "No Content"
+					}
+				}
+			},
+			"delete": {
+				"tags": [
+					"student-dtls-response-vo-entity-controller"
+				],
+				"description": "delete-studentdtlsresponsevo",
+				"operationId": "deleteItemResource-studentdtlsresponsevo-delete",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"204": {
+						"description": "No Content"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			},
+			"patch": {
+				"tags": [
+					"student-dtls-response-vo-entity-controller"
+				],
+				"description": "patch-studentdtlsresponsevo",
+				"operationId": "patchItemResource-studentdtlsresponsevo-patch",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/StudentDtlsResponseVORequestBody"
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"application/hal+json": {
+								"schema": {
+									"$ref": "#/components/schemas/EntityModelStudentDtlsResponseVO"
+								}
+							}
+						}
+					},
+					"204": {
+						"description": "No Content"
+					}
+				}
+			}
+		}
+	},
+	"components": {
+		"schemas": {
+			"AbstractJsonSchemaPropertyObject": {
+				"type": "object",
+				"properties": {
+					"title": {
+						"type": "string"
+					},
+					"readOnly": {
+						"type": "boolean"
+					}
+				}
+			},
+			"Item": {
+				"type": "object",
+				"properties": {
+					"type": {
+						"type": "string"
+					},
+					"properties": {
+						"type": "object",
+						"additionalProperties": {
+							"$ref": "#/components/schemas/AbstractJsonSchemaPropertyObject"
+						}
+					},
+					"requiredProperties": {
+						"type": "array",
+						"items": {
+							"type": "string"
+						}
+					}
+				}
+			},
+			"JsonSchema": {
+				"type": "object",
+				"properties": {
+					"title": {
+						"type": "string"
+					},
+					"description": {
+						"type": "string"
+					},
+					"properties": {
+						"type": "object",
+						"additionalProperties": {
+							"$ref": "#/components/schemas/AbstractJsonSchemaPropertyObject"
+						}
+					},
+					"requiredProperties": {
+						"type": "array",
+						"items": {
+							"type": "string"
+						}
+					},
+					"definitions": {
+						"type": "object",
+						"additionalProperties": {
+							"$ref": "#/components/schemas/Item"
+						}
+					},
+					"type": {
+						"type": "string"
+					},
+					"$schema": {
+						"type": "string"
+					}
+				}
+			},
+			"Links": {
+				"type": "object",
+				"additionalProperties": {
+					"$ref": "#/components/schemas/Link"
+				}
+			},
+			"RepresentationModelObject": {
+				"type": "object",
+				"properties": {
+					"_links": {
+						"$ref": "#/components/schemas/Links"
+					}
+				}
+			},
+			"EntityModelStudentDtlsResponseVO": {
+				"type": "object",
+				"properties": {
+					"studentName": {
+						"type": "string"
+					},
+					"studentPermanentAddress": {
+						"type": "string"
+					},
+					"studentCurrentAddress": {
+						"type": "string"
+					},
+					"studentContact": {
+						"type": "string"
+					},
+					"studentEmailId": {
+						"type": "string"
+					},
+					"_links": {
+						"$ref": "#/components/schemas/Links"
+					}
+				}
+			},
+			"PageMetadata": {
+				"type": "object",
+				"properties": {
+					"size": {
+						"type": "integer",
+						"format": "int64"
+					},
+					"totalElements": {
+						"type": "integer",
+						"format": "int64"
+					},
+					"totalPages": {
+						"type": "integer",
+						"format": "int64"
+					},
+					"number": {
+						"type": "integer",
+						"format": "int64"
+					}
+				}
+			},
+			"PagedModelEntityModelStudentDtlsResponseVO": {
+				"type": "object",
+				"properties": {
+					"_embedded": {
+						"type": "object",
+						"properties": {
+							"studentDtlsResponseVOes": {
+								"type": "array",
+								"items": {
+									"$ref": "#/components/schemas/EntityModelStudentDtlsResponseVO"
+								}
+							}
+						}
+					},
+					"_links": {
+						"$ref": "#/components/schemas/Links"
+					},
+					"page": {
+						"$ref": "#/components/schemas/PageMetadata"
+					}
+				}
+			},
+			"StudentDtlsResponseVORequestBody": {
+				"type": "object",
+				"properties": {
+					"studentId": {
+						"type": "string"
+					},
+					"studentName": {
+						"type": "string"
+					},
+					"studentPermanentAddress": {
+						"type": "string"
+					},
+					"studentCurrentAddress": {
+						"type": "string"
+					},
+					"studentContact": {
+						"type": "string"
+					},
+					"studentEmailId": {
+						"type": "string"
+					}
+				}
+			},
+			"Link": {
+				"type": "object",
+				"properties": {
+					"href": {
+						"type": "string"
+					},
+					"hreflang": {
+						"type": "string"
+					},
+					"title": {
+						"type": "string"
+					},
+					"type": {
+						"type": "string"
+					},
+					"deprecation": {
+						"type": "string"
+					},
+					"profile": {
+						"type": "string"
+					},
+					"name": {
+						"type": "string"
+					},
+					"templated": {
+						"type": "boolean"
+					}
+				}
+			}
+		}
+	}
+}

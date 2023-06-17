@@ -4,7 +4,11 @@ apply plugin: 'maven-publish'
 publishing {
     repositories {
         maven {
+<<<<<<< HEAD
             url 'http://ec2-52-68-185-231.ap-northeast-1.compute.amazonaws.com:8081/repository/student-directory-release/'
+=======
+            url 'http://ec2-18-182-66-141.ap-northeast-1.compute.amazonaws.com:8081/repository/student-directory-release/'
+>>>>>>> 9c99a70ea44d1b764c5c95027cb4b4eafa66fb45
             credentials {
                 username = 'admin'
                 password = 'Welcome4$'

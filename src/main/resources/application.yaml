@@ -1,0 +1,10 @@
+webClient:
+  config:
+    maxLifeTimeInMinutes: 5
+    connectTimeOut: 10000
+    maxConnections: 50
+    maxIdleTime: 10000
+    pendingAcquireTimeout: 60000
+    readTimeOut: 30000
+    mask:
+      headers: HTTP_AUTH_TOKEN, Authorization
