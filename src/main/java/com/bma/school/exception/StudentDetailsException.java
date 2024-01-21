@@ -1,7 +1,7 @@
 package com.bma.school.exception;
 
-public class StudentDetailsException extends Exception{
-	
+public class StudentDetailsException extends RuntimeException {
+
 	/**
 	 * 
 	 */
@@ -12,8 +12,8 @@ public class StudentDetailsException extends Exception{
 
 	public StudentDetailsException() {
 		super();
-	}	
-	
+	}
+
 	public StudentDetailsException(String exceptionCode, String exceptionType, String message) {
 		super();
 		this.exceptionCode = exceptionCode;
@@ -44,6 +44,4 @@ public class StudentDetailsException extends Exception{
 	public void setMessage(String message) {
 		this.message = message;
 	}
-	
-	
 }
